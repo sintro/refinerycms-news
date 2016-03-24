@@ -39,6 +39,7 @@ en:
   activerecord:
     attributes:
       'refinery/news/item':
+        data: Data
         title: Title
         body: Body
         publish_date: Publish date

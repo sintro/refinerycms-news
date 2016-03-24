@@ -4,6 +4,7 @@ module Refinery
       before_filter :find_page
       before_filter :find_published_news_items, :only => [:index]
       before_filter :find_news_item, :find_latest_news_items, :only => [:show]
+      before_filter :include_images, :only => [:show, :index]
 
       def index
         # render 'index'
@@ -31,11 +32,22 @@ module Refinery
       end
 
       def find_published_news_items
-        @items = Item.published.translated.page(params[:page])
+        @items = Item.published.page(params[:page])
+      end
+
+      def include_images
+        if Item.method_defined? :images
+          @items = @items.includes(:images, images: :translations)
+        end
       end
 
       def find_news_item
         @item = Item.published.translated.friendly.find(params[:id])
+
+        @item_images = nil
+        if Item.method_defined? :images
+          @item_images = @item.images.includes(:translations)
+        end   
       end
 
       def find_page

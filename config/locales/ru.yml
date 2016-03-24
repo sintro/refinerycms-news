@@ -27,8 +27,11 @@ ru:
   activerecord:
     attributes:
       'refinery/news/item':
+        data: "Данные"
         title: "Заголовок"
         body: "Публикация"
         publish_date: "Дата публикации"
+        expiration_date: "Дата устаревания"
+        source: "Источник"
     models:
       'refinery/news/item': "Новость"

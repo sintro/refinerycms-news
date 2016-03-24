@@ -8,7 +8,15 @@ module Refinery
         private
 
           def item_params
-            params.require(:item).permit(:title, :body, :content, :source, :publish_date, :expiration_date)
+            params[:item][:images_attributes]={} if params[:item][:images_attributes].nil?
+            params.require(:item).permit(:title,
+                                          :body,
+                                          :content,
+                                          :source,
+                                          :publish_date,
+                                          :expiration_date,
+                                          images_attributes: [:id, :caption]
+                                          )
           end
 
       end
