@@ -3,6 +3,7 @@ ru:
     plugins:
       refinerycms_news:
         title: "Новости"
+        description: "Предоставляет простой раздел новостей"
     news:
       admin:
         items:
@@ -15,15 +16,26 @@ ru:
             create: "Создать новость"
             item: "Новости"
             no_items_yet: 'Новостей пока нет.'
+      shared:
+        items:
+          read_more: "Читать далее"
+          created_at: 'Добавлено: %{when}'
+        archives: Archives
       items:
         show:
           back_to_index: "Вернуться к новостям"
           published: "Опубликована"
+          source: "Источник"
         recent_posts:
           recent_posts: "Последние публикации"
         index:
           published: "Опубликовано"
           read_more: "Читать далее"
+          no_items_yet: "Еще нет ни одной новости"
+          source: "Источник"
+        archive:
+          news_item_archive_for: 'Архив на %{date}'
+          no_news_item_articles_posted: 'На %{date} нет ни одной добавленной новости. Поищите для других дней.'
   activerecord:
     attributes:
       'refinery/news/item':
